@@ -36,7 +36,7 @@
 This project is a simple port of Amazon Linux 2 AMI from Amazon Web Services  for OpenStack environments.  
 This image is strictly the same that the original, the only change has been made is adding OpenStack datasource for cloud-init.  
 
-This image is updated when AWS released a new version on their public repository [here](https://cdn.amazonlinux.com/os-images/latest/ "AWS Images Repository").
+This image is updated when AWS released a new version on their public repository [here](https://cdn.amazonlinux.com/al2023/os-images/latest "AWS Images Repository").
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -50,7 +50,7 @@ To get a local copy up and running follow these simple example steps.
 ### How to use this image
 
 1. Set your OpenStack environment variables
-2. Download the latest image from [release page](https://github.com/linitio/openstack-amazon-linux-2-image/releases "Release page")
+2. Download the latest image from the [repository page](https://s3.openimages.cloud/amazon-linux-2023-image/index.html "Images Repository")
 3. Upload image to your OpenStack environment
    ```sh
    openstack image create --disk-format=qcow2 --container-format=bare --min-disk 25 --file amzn2-kvm-2.0.20220606.1-x86_64.xfs.gpt.qcow2  'Amazon Linux 2'
