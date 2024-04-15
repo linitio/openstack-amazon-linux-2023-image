@@ -106,6 +106,6 @@ Project Link: [https://github.com/linitio/openstack-amazon-linux-2023-image](htt
 [issues-shield]: https://img.shields.io/github/issues/linitio/openstack-amazon-linux-2023-image.svg?style=for-the-badge
 [issues-url]: https://github.com/linitio/openstack-amazon-linux-2023-image/issues
 [license-shield]: https://img.shields.io/github/license/linitio/openstack-amazon-linux-2023-image.svg?style=for-the-badge
-[license-url]: https://github.com/linitio/openstack-amazon-linux-2023-image/blob/master/LICENSE.txt
+[license-url]: https://github.com/linitio/openstack-amazon-linux-2023-image/blob/master/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/kevinallioli
