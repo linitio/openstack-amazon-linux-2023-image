@@ -1,0 +1,66 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+env:
+  VERSION: ${{ github.ref_name }}
+  BASE_OS_IMAGE: base-os.qcow2
+  S3_ENDPOINT: ${{ vars.S3_ENDPOINT }}
+  ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
+  SECRET_KEY: ${{ secrets.SECRET_KEY }}
+  S3_ALIAS: ${{ secrets.S3_ALIAS }}
+  S3_BUCKET: ${{ vars.S3_BUCKET }}
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    tags:
+    - '*'
+  
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: [self-hosted, Linux]
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a single command using the runners shell
+      - name: Install prerequies
+        run: |
+          sudo dnf update -y
+          sudo dnf install -y libguestfs-tools libguestfs-tools-c wget
+      # Runs a set of commands using the runners shell
+      - name: Download base image from AWS
+        run: |
+         sudo wget "https://cdn.amazonlinux.com/al2023/os-images/${{ env.VERSION }}/kvm/al2023-kvm-${{ env.VERSION }}-kernel-6.1-x86_64.xfs.gpt.qcow2" -O $BASE_OS_IMAGE
+      - name: Making some changes on base image
+        run: |
+         sudo virt-copy-in -a $BASE_OS_IMAGE config/02_amazon-onprem.cfg /etc/cloud/cloud.cfg.d/
+      - name: Sparsify image
+        run: |
+         sudo virt-sysprep -a $BASE_OS_IMAGE
+         sudo virt-sparsify --compress $BASE_OS_IMAGE amzn2-kvm-${{ env.VERSION }}-x86_64.xfs.gpt.qcow2
+         sudo md5sum amzn2-kvm-${{ env.VERSION }}-x86_64.xfs.gpt.qcow2 > md5.txt
+         sudo sha1sum -b amzn2-kvm-${{ env.VERSION }}-x86_64.xfs.gpt.qcow2 > sha1.txt
+         sudo sha256sum -b amzn2-kvm-${{ env.VERSION }}-x86_64.xfs.gpt.qcow2 > sha256.txt
+      - name: Uploading image in object storage
+        run: |
+         echo "Uploading image in object storage"
+         mc alias set ${{ env.S3_ALIAS }} ${{ env.S3_ENDPOINT }} ${{ env.ACCESS_KEY }} ${{ env.SECRET_KEY }}
+         mc cp amzn2-kvm-${{ env.VERSION }}-x86_64.xfs.gpt.qcow2 ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/latest/amzn2-kvm-${{ env.VERSION }}-x86_64.xfs.gpt.qcow2
+         mc cp md5.txt ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/latest/md5.txt
+         mc cp sha1.txt ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/latest/sha1.txt
+         mc cp sha256.txt ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/latest/sha256.txt
+         mc cp ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/latest/amzn2-kvm-${{ env.VERSION }}-x86_64.xfs.gpt.qcow2 ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/${{ env.VERSION }}/amzn2-kvm-${{ env.VERSION }}-x86_64.xfs.gpt.qcow2
+         mc cp ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/latest/md5.txt ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/${{ env.VERSION }}/md5.txt
+         mc cp ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/latest/sha1.txt ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/${{ env.VERSION }}/sha1.txt
+         mc cp ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/latest/sha256.txt ${{ env.S3_ALIAS }}/${{ env.S3_BUCKET }}/${{ env.VERSION }}/sha256.txt
