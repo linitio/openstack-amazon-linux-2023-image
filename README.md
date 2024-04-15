@@ -13,13 +13,13 @@
 <br />
 <div align="center">
   <a href="https://github.com/linitio/openstack-amazon-linux-2023-image">
-    <img src="images/logo.png" alt="Logo" width="105" height="150">
+    <img src="images/logo.png" alt="Logo" width="150" height="150">
   </a>
 
-<h3 align="center">Amazon Linux 2 image for OpenStack</h3>
+<h3 align="center">Amazon Linux 2023 image for OpenStack</h3>
 
   <p align="center">
-    Simple port of Amazon Linux 2 AMI for OpenStack environments
+    Simple port of Amazon Linux 2023 AMI for OpenStack environments
     <br />
     <a href="https://github.com/linitio/openstack-amazon-linux-2023-image"><strong>Explore the docs »</strong></a>
     <br />
@@ -53,7 +53,7 @@ To get a local copy up and running follow these simple example steps.
 2. Download the latest image from the [repository page](https://s3.openimages.cloud/amazon-linux-2023-image/index.html "Images Repository")
 3. Upload image to your OpenStack environment
    ```sh
-   openstack image create --disk-format=qcow2 --container-format=bare --min-disk 25 --file amzn2-kvm-2.0.20220606.1-x86_64.xfs.gpt.qcow2  'Amazon Linux 2'
+   openstack image create --disk-format=qcow2 --container-format=bare --min-disk 25 --file al2023-kvm-<VERSION>-kernel-6.1-x86_64.xfs.gpt.qcow2 'Amazon Linux 2023'
    ```
 
 <p align="right">(<a href="#top">back to top</a>)</p>
