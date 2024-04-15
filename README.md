@@ -12,7 +12,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/linitio/openstack-amazon-linux-2-image">
+  <a href="https://github.com/linitio/openstack-amazon-linux-2023-image">
     <img src="images/logo.png" alt="Logo" width="105" height="150">
   </a>
 
@@ -21,22 +21,22 @@
   <p align="center">
     Simple port of Amazon Linux 2 AMI for OpenStack environments
     <br />
-    <a href="https://github.com/linitio/openstack-amazon-linux-2-image"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/linitio/openstack-amazon-linux-2023-image"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/linitio/openstack-amazon-linux-2-image/issues">Report Bug</a>
+    <a href="https://github.com/linitio/openstack-amazon-linux-2023-image/issues">Report Bug</a>
     ·
-    <a href="https://github.com/linitio/openstack-amazon-linux-2-image/issues">Request Feature</a>
+    <a href="https://github.com/linitio/openstack-amazon-linux-2023-image/issues">Request Feature</a>
   </p>
 </div>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project is a simple port of Amazon Linux 2 AMI from Amazon Web Services  for OpenStack environments.  
+This project is a simple port of Amazon Linux 2023 AMI from Amazon Web Services  for OpenStack environments.  
 This image is strictly the same that the original, the only change has been made is adding OpenStack datasource for cloud-init.  
 
-This image is updated when AWS released a new version on their public repository [here](https://cdn.amazonlinux.com/al2023/os-images/latest "AWS Images Repository").
+This image is updated when AWS released a new version on their public repository [here](https://cdn.amazonlinux.com/al2023/os-images/latest/ "AWS Images Repository").
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -90,22 +90,22 @@ Distributed under the GPL-2.0 License. See `LICENSE.md` for more information.
 
 Kevin Allioli - [@linit_io](https://twitter.com/linit_io) - kevin@linit.io
 
-Project Link: [https://github.com/linitio/openstack-amazon-linux-2-image](https://github.com/linitio/openstack-amazon-linux-2-image)
+Project Link: [https://github.com/linitio/openstack-amazon-linux-2023-image](https://github.com/linitio/openstack-amazon-linux-2023-image)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/linitio/openstack-amazon-linux-2-image.svg?style=for-the-badge
-[contributors-url]: https://github.com/linitio/openstack-amazon-linux-2-image/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/linitio/openstack-amazon-linux-2-image.svg?style=for-the-badge
-[forks-url]: https://github.com/linitio/openstack-amazon-linux-2-image/network/members
-[stars-shield]: https://img.shields.io/github/stars/linitio/openstack-amazon-linux-2-image.svg?style=for-the-badge
-[stars-url]: https://github.com/linitio/openstack-amazon-linux-2-image/stargazers
-[issues-shield]: https://img.shields.io/github/issues/linitio/openstack-amazon-linux-2-image.svg?style=for-the-badge
-[issues-url]: https://github.com/linitio/openstack-amazon-linux-2-image/issues
-[license-shield]: https://img.shields.io/github/license/linitio/openstack-amazon-linux-2-image.svg?style=for-the-badge
-[license-url]: https://github.com/linitio/openstack-amazon-linux-2-image/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/linitio/openstack-amazon-linux-2023-image.svg?style=for-the-badge
+[contributors-url]: https://github.com/linitio/openstack-amazon-linux-2023-image/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/linitio/openstack-amazon-linux-2023-image.svg?style=for-the-badge
+[forks-url]: https://github.com/linitio/openstack-amazon-linux-2023-image/network/members
+[stars-shield]: https://img.shields.io/github/stars/linitio/openstack-amazon-linux-2023-image.svg?style=for-the-badge
+[stars-url]: https://github.com/linitio/openstack-amazon-linux-2023-image/stargazers
+[issues-shield]: https://img.shields.io/github/issues/linitio/openstack-amazon-linux-2023-image.svg?style=for-the-badge
+[issues-url]: https://github.com/linitio/openstack-amazon-linux-2023-image/issues
+[license-shield]: https://img.shields.io/github/license/linitio/openstack-amazon-linux-2023-image.svg?style=for-the-badge
+[license-url]: https://github.com/linitio/openstack-amazon-linux-2023-image/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/kevinallioli
